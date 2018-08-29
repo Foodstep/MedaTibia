@@ -624,11 +624,6 @@ void Monster::onThink(uint32_t interval)
 
 	if(teleportToMaster && doTeleportToMaster())
 		teleportToMaster = false;
-	
-	if(getMaster()){
-    	if(!Position::areInRange<6,6,0>(getPosition(), getMaster()->getPosition()))
-                        doTeleportToMaster();           
-         } 
 
 	addEventWalk();
 	if(isSummon())
