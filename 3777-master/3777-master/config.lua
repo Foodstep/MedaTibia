@@ -1,6 +1,6 @@
 -- The Forgotten Server Config
 
-	-- Account manager
+	-- Account manager 
 	accountManager = true
 	namelockManager = true
 	newPlayerChooseVoc = true
