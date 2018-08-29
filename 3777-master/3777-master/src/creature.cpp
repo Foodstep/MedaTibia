@@ -539,8 +539,8 @@ void Creature::onCreatureMove(const Creature* creature, const Tile* newTile, con
 		else
 			stopEventWalk();
 
-		if(!summons.empty() && (!g_config.getBool(ConfigManager::TELEPORT_SUMMONS) ||
-			(g_config.getBool(ConfigManager::TELEPORT_PLAYER_SUMMONS) && !getPlayer())))
+		
+		/*if(!summons.empty())
 		{
 			std::list<Creature*>::iterator cit;
 			std::list<Creature*> despawnList;
@@ -549,12 +549,12 @@ void Creature::onCreatureMove(const Creature* creature, const Tile* newTile, con
 				const Position pos = (*cit)->getPosition();
 				if((std::abs(pos.z - newPos.z) > 2) || (std::max(std::abs((
 					newPos.x) - pos.x), std::abs((newPos.y - 1) - pos.y)) > 30))
-					despawnList.push_back(*cit);
+					despawnList.push_back((*cit));
 			}
 
 			for(cit = despawnList.begin(); cit != despawnList.end(); ++cit)
 				g_game.removeCreature((*cit), true);
-		}
+		}*/
 
 		if(newTile->getZone() != oldTile->getZone())
 			onChangeZone(getZone());
@@ -1275,7 +1275,7 @@ void Creature::onGainExperience(double& gainExp, bool fromMonster, bool multipli
 
 	if(master)
 	{
-		gainExp = gainExp / 2;
+		gainExp = gainExp;
 		master->onGainExperience(gainExp, fromMonster, multiplied);
 	}
 	else if(!multiplied)
