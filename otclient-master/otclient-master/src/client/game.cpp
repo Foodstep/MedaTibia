@@ -1473,7 +1473,6 @@ bool Game::checkBotProtection()
 #ifdef BOT_PROTECTION
     // accepts calls comming from a stacktrace containing only C++ functions,
     // if the stacktrace contains a lua function, then only accept if the engine is processing an input event
-	return true;
     if(m_denyBotCall && g_lua.isInCppCallback() && !g_app.isOnInputEvent()) {
         g_logger.error(g_lua.traceback("caught a lua call to a bot protected game function, the call was cancelled"));
         return false;

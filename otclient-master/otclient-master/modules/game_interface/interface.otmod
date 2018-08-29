@@ -31,6 +31,5 @@ Module
     - game_cooldown
     - game_modaldialog
     - game_unjustifiedpoints
-    - game_spellbar
   @onLoad: init()
   @onUnload: terminate()
